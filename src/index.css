@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500;1,600&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", ui-serif, Georgia, serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  
+  --color-primary: #dc2626; /* Red-600 */
+  --color-secondary: #09090b; /* Zinc-950 */
+  --color-accent: #18181b; /* Zinc-900 */
+}
+
+@layer base {
+  body {
+    @apply bg-secondary text-zinc-100 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply uppercase tracking-tighter font-black italic;
+  }
+}
+
+/* Geometric balance specific classes */
+.luxury-text {
+  @apply text-[10px] uppercase tracking-[0.3em] font-bold text-zinc-500;
+}
+
+.card-luxury {
+  @apply bg-accent border border-white/5 transition-all duration-500 hover:border-primary/50;
+}
+
+.btn-primary {
+  @apply bg-primary hover:bg-red-700 text-white text-xs font-bold uppercase tracking-widest px-8 py-4 transition-all active:scale-95;
+}
+
+.btn-outline {
+  @apply border border-white/10 bg-zinc-800/30 hover:bg-zinc-800 text-zinc-100 text-xs font-bold uppercase tracking-widest px-8 py-4 transition-all;
+}
+
+.mono-price {
+  @apply font-mono text-primary font-bold tracking-tighter;
+}
+
+.geometric-logo-box {
+  @apply w-10 h-10 bg-primary flex items-center justify-center rotate-45 transition-transform hover:rotate-[135deg] duration-500;
+}
+
