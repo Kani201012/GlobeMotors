@@ -1,0 +1,6 @@
+{
+  "name": "GLOBE Motors-MOMBASA",
+  "description": "Premium vehicle dealership in Mombasa, Kenya, specializing in new and used luxury motor vehicles.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["inventory_management", "admin_dashboard", "whatsapp_integration"]
+}

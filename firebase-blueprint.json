@@ -1,0 +1,70 @@
+{
+  "entities": {
+    "Vehicle": {
+      "title": "Vehicle",
+      "description": "A motor vehicle for sale in the dealership inventory.",
+      "type": "object",
+      "properties": {
+        "make": { "type": "string", "description": "Manufacturer (e.g., Toyota, Mercedes)" },
+        "model": { "type": "string", "description": "Vehicle model" },
+        "year": { "type": "number", "description": "Manufacture year" },
+        "price": { "type": "number", "description": "Sale price in KES" },
+        "bodyType": { "type": "string", "description": "SUV, Sedan, Hatchback, etc." },
+        "fuelType": { "type": "string", "description": "Petrol, Diesel, Hybrid, Electric" },
+        "transmission": { "type": "string", "description": "Automatic, Manual" },
+        "mileage": { "type": "number", "description": "Distance traveled in KM" },
+        "condition": { "type": "string", "enum": ["New", "Used"], "description": "Vehicle condition" },
+        "color": { "type": "string", "description": "Exterior color" },
+        "engineSize": { "type": "string", "description": "Engine capacity (e.g., 2.0L)" },
+        "description": { "type": "string", "description": "Detailed description" },
+        "features": { "type": "array", "items": { "type": "string" }, "description": "List of key features" },
+        "images": { "type": "array", "items": { "type": "string" }, "description": "Array of image URLs" },
+        "status": { "type": "string", "enum": ["Available", "Sold", "Reserved"], "description": "Availability status" },
+        "isFeatured": { "type": "boolean", "description": "Whether to highlight on home page" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["make", "model", "year", "price", "condition", "status"]
+    },
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "A customer inquiry about a specific vehicle or a general contact message.",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "phone": { "type": "string" },
+        "message": { "type": "string" },
+        "vehicleId": { "type": "string", "description": "Optional ID of the vehicle inquired about" },
+        "type": { "type": "string", "enum": ["Contact", "Test Drive", "Price Negotiation", "Finance"] },
+        "status": { "type": "string", "enum": ["New", "Read", "Replied", "Closed"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["name", "email", "phone", "message", "status", "createdAt"]
+    },
+    "Admin": {
+      "title": "Admin",
+      "description": "User with administrative privileges.",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["SuperAdmin", "Sales"] }
+      },
+      "required": ["email", "role"]
+    }
+  },
+  "firestore": {
+    "vehicles": {
+      "schema": "Vehicle",
+      "description": "Collection of all dealership cars."
+    },
+    "inquiries": {
+      "schema": "Inquiry",
+      "description": "Collection of customer inquiries."
+    },
+    "admins": {
+      "schema": "Admin",
+      "description": "Authorized administrators."
+    }
+  }
+}
